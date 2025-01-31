@@ -3,38 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#0a0a0a">
-    <meta name="description" content="Rolse Web3 - Криптовалютная платформа для Telegram">
-    <title>Rolse Web3</title>
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Rolse Casino - Crypto Gaming Platform">
+    <title>Rolse Casino</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Rolse Web3</h1>
-            <div class="header-glow"></div>
-        </div>
-        <div class="content">
-            <div class="balance-card">
-                <h2>Баланс</h2>
-                <p class="balance" id="userBalance">0.00 USDT</p>
-                <button class="main-button" id="depositButton">
-                    <span class="button-icon">💎</span>
-                    Пополнить
+        <header class="header">
+            <h1>Rolse Casino</h1>
+            <div class="user-balance">
+                <span class="balance-label">Баланс:</span>
+                <span class="balance-amount" id="userBalance">0.00 USDT</span>
+                <button class="deposit-button" id="depositButton">
+                    <span class="button-icon">+</span>
+                    Депозит
                 </button>
             </div>
-            <div class="transactions">
-                <h2>История транзакций</h2>
-                <div class="transaction-list" id="transactionList">
-                    <div class="loading-placeholder">
-                        <div class="loading-spinner"></div>
-                        <p>Загрузка транзакций...</p>
+        </header>
+
+        <div class="games-grid">
+            <div class="game-card" id="diceGame">
+                <div class="game-icon">🎲</div>
+                <h3>Dice</h3>
+                <p class="game-desc">x2 - x100</p>
+            </div>
+            
+            <div class="game-card" id="minesGame">
+                <div class="game-icon">💣</div>
+                <h3>Mines</h3>
+                <p class="game-desc">до x1000</p>
+            </div>
+            
+            <div class="game-card" id="towerGame">
+                <div class="game-icon">🏰</div>
+                <h3>Tower</h3>
+                <p class="game-desc">до x1000</p>
+            </div>
+        </div>
+
+        <div class="recent-bets">
+            <h2>Последние ставки</h2>
+            <div class="bets-list" id="betsList">
+                <!-- Ставки будут добавляться динамически -->
+            </div>
+        </div>
+
+        <div class="game-interface hidden" id="gameInterface">
+            <div class="game-header">
+                <button class="back-button" id="backButton">←</button>
+                <h2 id="currentGameTitle">Dice</h2>
+            </div>
+            
+            <div class="game-content" id="gameContent">
+                <!-- Контент игры будет добавляться динамически -->
+            </div>
+
+            <div class="bet-controls">
+                <div class="bet-amount">
+                    <label>Ставка</label>
+                    <input type="number" id="betAmount" min="1" value="1">
+                    <div class="bet-buttons">
+                        <button class="bet-button" data-action="min">MIN</button>
+                        <button class="bet-button" data-action="x2">x2</button>
+                        <button class="bet-button" data-action="max">MAX</button>
                     </div>
                 </div>
+                <button class="play-button" id="playButton">Играть</button>
             </div>
         </div>
     </div>
     <script src="app.js"></script>
 </body>
-</html>
+</html> 
